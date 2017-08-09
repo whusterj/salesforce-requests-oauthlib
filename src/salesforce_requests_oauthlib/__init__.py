@@ -32,8 +32,18 @@
 #       at once
 import os.path
 import os
-import BaseHTTPServer
-import thread
+
+# import BaseHTTPServer
+# import thread
+try:
+    import BaseHTTPServer
+except ImportError:
+    import http.server as BaseHTTPServer
+try:
+    import thread
+except ImportError:
+    import _thread as thread
+
 import webbrowser
 import pickle
 import errno
